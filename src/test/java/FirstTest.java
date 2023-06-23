@@ -12,7 +12,7 @@ public class FirstTest {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\singh\\IdeaProjects" +
                 "\\Selenium-FW\\src\\main\\resources\\chromedriver.exe");
 
-        //Using chromeoptions below as the link will not be accessed on localhost unless allowed
+        //Using chromeoptions below as the link will not be accessed because only local connections are allowed.
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
