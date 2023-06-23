@@ -26,5 +26,11 @@ Types of Locators in Selenium:
 
 
 ###Project Details
-FirstTest file contains setting up the tests using the previous method of adding a chromedriver in the resource folder and using selenium to setup the driver.
+WithDriverTest file contains setting up the tests using the previous method of adding a chromedriver in the resource folder and using selenium to setup the driver.
 
+How to write CSS selectors:
+1. Classname will be written as ".nameofclass"
+2. id will be written as "#idvalue".
+3. Any other attribute will be written as "[attribute = 'value']"
+4. For compound class name or class which contain multiple values, use ".btn_action.checkout_button" format, a dot between the two names.
+5. 

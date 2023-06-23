@@ -3,7 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class FirstTest {
+public class WithDriverTest {
 
     @Test
     public void firstTest() throws InterruptedException {
