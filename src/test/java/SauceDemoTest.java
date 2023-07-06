@@ -1,16 +1,34 @@
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.json.Json;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class SauceDemoTest {
 
     WebDriver driver;
+    String jsonContent = new String(Files.readAllBytes
+            (Paths.get("C:\\Users\\singh\\IdeaProjects\\Selenium-FW\\src\\main\\resources\\sauceDemo.json")));
+    JSONObject jsonObject = new JSONObject(jsonContent);
+
+    public SauceDemoTest() throws IOException {
+    }
 
     @Before
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -28,7 +46,7 @@ public class SauceDemoTest {
         driver.get("https://www.saucedemo.com/v1/");
 
         //Login
-        driver.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
+        driver.findElement(By.cssSelector("#user-name")).sendKeys((CharSequence) jsonObject.get("username"));
         driver.findElement(By.cssSelector("#password")).sendKeys("secret_sauce");
         driver.findElement(By.cssSelector(".btn_action")).click();
 
